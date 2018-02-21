@@ -11,12 +11,37 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <!-- HEADLIGHT -->
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/urban_form_logo"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/font"
+            android:textStyle="bold"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textAllCaps="true"
+            android:text="@string/compare"
+            />
+
+        <!-- END OF HEADLIGHT-->
+
         <!-- TWO SUB LAYOUTS-->
 
     <LinearLayout
-
+        android:id="@+id/two_windows"
+        android:layout_below="@id/logo"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
 
 
 
@@ -26,38 +51,89 @@
             android:id="@+id/left_layout"
             android:layout_weight="1"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hello World!"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@color/font"
+            android:textStyle="bold"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textAllCaps="true"
+            android:text="@string/item_one"
             />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/flower_pot_small"
+
+                />
+
+
         </LinearLayout>
 
         <!-- END OF RIGHT LAYOUT-->
-
-        <!-- LEFT LAYOUT-->
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/line" />
+        <!-- RIGHT LAYOUT-->
 
         <LinearLayout
             android:id="@+id/right_layout"
             android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
 
             >
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Hello Hell!"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/font"
+                android:textStyle="bold"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textAllCaps="true"
+                android:text="@string/item_two"
                 />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/flower_pot_small"
+
+                />
+
         </LinearLayout>
 
         <!-- END OF RIGHT LAYOUT-->
 
     </LinearLayout>
         <!-- END OF TWO SUB LAYOUTS-->
+
+        <!--FOOTER LAYOUT-->
+        <LinearLayout
+            android:id="@+id/footer_layout"
+            android:layout_below="@id/two_windows"
+            android:layout_centerInParent="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+
+
+        </LinearLayout>
+
+        <!--END OF FOOTER LAYOUT-->
 
     </RelativeLayout>
 </ScrollView>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.android.compareitems.MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- TWO SUB LAYOUTS-->
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+
+        <!-- LEFT LAYOUT-->
+
+        <LinearLayout
+            android:id="@+id/left_layout"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hello World!"
+            />
+        </LinearLayout>
+
+        <!-- END OF RIGHT LAYOUT-->
+
+        <!-- LEFT LAYOUT-->
+
+        <LinearLayout
+            android:id="@+id/right_layout"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hello Hell!"
+                />
+        </LinearLayout>
+
+        <!-- END OF RIGHT LAYOUT-->
+
+    </LinearLayout>
+        <!-- END OF TWO SUB LAYOUTS-->
+
+    </RelativeLayout>
+</ScrollView>

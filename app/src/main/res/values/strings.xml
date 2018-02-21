@@ -5,4 +5,8 @@
     <string name="item_one">Item one</string>
     <string name="item_two">Item two</string>
 
+    <!-- BUTTONS -->
+    <string name="button_decrease">smaller</string>
+    <string name="button_increase">bigger</string>
+
 </resources>

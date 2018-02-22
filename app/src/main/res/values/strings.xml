@@ -4,9 +4,16 @@
     <string name="compare">compare</string>
     <string name="item_one">Item one</string>
     <string name="item_two">Item two</string>
+    <string name="des">Description</string>
 
-    <!-- BUTTONS -->
+    <!-- BUTTONS & BOXES -->
     <string name="button_decrease">smaller</string>
     <string name="button_increase">bigger</string>
+    <string name="reset">reset</string>
+    <string name="submit">submit</string>
+
+    <string name="checkbox">Select to buy</string>
+
+
 
 </resources>

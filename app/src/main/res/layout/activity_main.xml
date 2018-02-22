@@ -51,6 +51,7 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/item_name_left"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -73,27 +74,43 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
                     android:layout_gravity="center_horizontal"
-                    >
+                    android:orientation="horizontal">
 
                     <Button
-                    android:id="@+id/button_decrease_left"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/button_decrease"
-                    />
+                        android:id="@+id/button_decrease_left"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/button_decrease" />
 
                     <Button
                         android:id="@+id/button_increase_left"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/button_increase"
-                        />
+                        android:text="@string/button_increase" />
 
                 </LinearLayout>
 
                 <!-- END OF INCREASE / DECREASE BUTTONS LAYOUT -->
+
+                <TextView
+                    android:id="@+id/description_left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/des"
+                    android:layout_gravity="center_horizontal"
+                    android:textSize="@dimen/description_font"
+                    android:textColor="@color/font"
+                    />
+
+                <CheckBox
+                    android:id="@+id/checkbox_left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/checkbox"
+                    android:textSize="@dimen/description_font"
+
+                    />
 
             </LinearLayout>
 
@@ -114,6 +131,7 @@
                 >
 
                 <TextView
+                    android:id="@+id/item_name_right"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -136,27 +154,43 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
                     android:layout_gravity="center_horizontal"
-                    >
+                    android:orientation="horizontal">
 
                     <Button
                         android:id="@+id/button_decrease_right"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/button_decrease"
-                        />
+                        android:text="@string/button_decrease" />
 
                     <Button
                         android:id="@+id/button_increase_right"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/button_increase"
-                        />
+                        android:text="@string/button_increase" />
 
                 </LinearLayout>
 
                 <!-- END OF INCREASE / DECREASE BUTTONS LAYOUT -->
+
+                <TextView
+                    android:id="@+id/description_right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/des"
+                    android:layout_gravity="center_horizontal"
+                    android:textSize="@dimen/description_font"
+                    android:textColor="@color/font"
+                    />
+
+                <CheckBox
+                    android:id="@+id/checkbox_right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/checkbox"
+                    android:textSize="@dimen/description_font"
+
+                    />
 
             </LinearLayout>
 
@@ -173,6 +207,24 @@
             android:layout_below="@id/two_windows"
             android:layout_centerInParent="true"
             android:orientation="vertical">
+
+            <Button
+                android:id="@+id/button_reset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/reset"
+
+                />
+
+            <Button
+                android:id="@+id/button_submit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/submit"
+
+                />
 
 
         </LinearLayout>

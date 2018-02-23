@@ -9,7 +9,10 @@ import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.ImageView;
+import android.widget.TextView;
 
+import java.text.Format;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 
 public class MainActivity extends Activity {
@@ -27,10 +30,12 @@ public class MainActivity extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
 
         setContentView(R.layout.activity_main);
-        arrayItem[0] = new Item(getResources().getString(R.string.item1_name), 15, getResources().getString(R.string.item1_des));
-
-
+        arrayItem[0] = new Item(getResources().getString(R.string.item1_name), R.drawable.flower_pot_small , 15, getResources().getString(R.string.item1_des));
+        arrayItem[1] = new Item(getResources().getString(R.string.item2_name), R.drawable.flower_pot_medium, 25, getResources().getString(R.string.item2_des));
+        arrayItem[2] = new Item(getResources().getString(R.string.item3_name), R.drawable.flower_pot_big, 35, getResources().getString(R.string.item3_des));
     }
+
+
 
     // INCREASING AND DECREASING NUM RIGHT AND LEFT METHODS
 
@@ -82,16 +87,25 @@ public class MainActivity extends Activity {
 
     // END OF INCREASING AND DECREASING NUM RIGHT AND LEFT METHODS
 
-    public void biggerPic(View v){
+    public void clicktest(View v){
 
-        ImageView pic = (ImageView) findViewById(R.id.image_left);
-        pic.setImageResource(R.drawable.flower_pot_medium);
+        setItemLeft(arrayItem[numLeft]);
 
 
     }
 
-    public void setItem(Item i){
+    public void setItemLeft(Item i) {
+        TextView name = findViewById(R.id.item_name_left);
+        name.setText(i.itemName);
 
+        ImageView pic = findViewById(R.id.image_left);
+        pic.setImageResource(i.picId);
+
+        TextView price = findViewById(R.id.price_left);
+        price.setText(NumberFormat.getCurrencyInstance().format(i.itemPrice));
+
+        TextView des = findViewById(R.id.description_left);
+        des.setText(i.itemDes);
 
 
     }

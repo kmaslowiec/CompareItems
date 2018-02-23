@@ -9,11 +9,13 @@ package com.example.android.compareitems;
 public class Item extends MainActivity {
 
     String itemName;
+    int picId;
     int itemPrice;
     String itemDes;
 
-    Item(String itemName, int itemPrice, String itemDes){
+    Item(String itemName, int picId, int itemPrice, String itemDes){
         this.itemName = itemName;
+        this.picId = picId;
         this.itemPrice = itemPrice;
         this.itemDes = itemDes;
 

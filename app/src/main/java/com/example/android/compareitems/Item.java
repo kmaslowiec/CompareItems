@@ -8,6 +8,17 @@ package com.example.android.compareitems;
 
 public class Item extends MainActivity {
 
-    String hello = "hello";
+    String itemName;
+    int itemPrice;
+    String itemDes;
+
+    Item(String itemName, int itemPrice, String itemDes){
+        this.itemName = itemName;
+        this.itemPrice = itemPrice;
+        this.itemDes = itemDes;
+
+
+    }
+
 
 }

@@ -10,19 +10,24 @@ import android.view.View;
 import android.view.Window;
 import android.widget.ImageView;
 
+import java.util.ArrayList;
+
 public class MainActivity extends Activity {
 
     private int numLeft = 0;
     private int numRight = 0;
-    Item item;
+    private Item[] arrayItem = new Item[3];
+   //Item[] arrayItem = {new Item(getResources().getString(R.string.item1_name), 15, getResources().getString(R.string.item1_des))};
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
+
         setContentView(R.layout.activity_main);
-        item = new Item();
+        arrayItem[0] = new Item(getResources().getString(R.string.item1_name), 15, getResources().getString(R.string.item1_des));
 
 
     }
@@ -81,6 +86,12 @@ public class MainActivity extends Activity {
 
         ImageView pic = (ImageView) findViewById(R.id.image_left);
         pic.setImageResource(R.drawable.flower_pot_medium);
+
+
+    }
+
+    public void setItem(Item i){
+
 
 
     }

@@ -15,7 +15,17 @@
 
     <string name="checkbox">Select to buy</string>
 
+    <!-- ITEM SMALL POD -->
+    <string name="item1_name">Small Flower Pot</string>
+    <string name="item1_price">15</string>
+    <string name="item1_des">
+        Size: Diameter 9 cm, height 15 cm, width 10 cm\n
+        Material: Concrete\n
+        Color: Concrete Grey\n
+        Notes: Suitable for outdoor use
 
+    </string>
+    <!-- END OF ITEM SMALL POD -->
 
 
 

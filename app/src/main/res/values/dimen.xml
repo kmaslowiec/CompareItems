@@ -2,6 +2,6 @@
 <resources>
 
     <dimen name="description_font">10sp</dimen>
-
+    <dimen name="compare_top_margin">6dp</dimen>
 
 </resources>

@@ -24,10 +24,9 @@ public class MainActivity extends Activity {
 
     private int numLeft = 0;
     private int numRight = 0;
+    CheckBox leftBox;
+    CheckBox rightBox;
     private Item[] arrayItem = new Item[3];
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,10 +39,9 @@ public class MainActivity extends Activity {
         arrayItem[2] = new Item(R.string.item3_name, R.drawable.flower_pot_big, 35, R.string.item3_des_important, R.string.item_des_other);
         setItemLeft(arrayItem[0]);
         setItemRight(arrayItem[0]);
-
+        leftBox = findViewById(R.id.checkbox_left);
+        rightBox = findViewById(R.id.checkbox_right);
     }
-
-
 
     // INCREASING AND DECREASING NUM RIGHT AND LEFT METHODS
 
@@ -58,8 +56,6 @@ public class MainActivity extends Activity {
         numLeft++;
 
         setItemLeft(arrayItem[numLeft]);
-        Log.i("info1", "inc left " + numLeft);
-
     }
 
     /**
@@ -72,7 +68,6 @@ public class MainActivity extends Activity {
         numRight++;
 
         setItemRight(arrayItem[numRight]);
-        Log.i("info2", "inc Right " + numRight);
     }
 
     /**
@@ -85,7 +80,6 @@ public class MainActivity extends Activity {
         numLeft--;
 
         setItemLeft(arrayItem[numLeft]);
-        Log.i("info3", "dec Left " + numLeft);
     }
 
     /**
@@ -97,11 +91,14 @@ public class MainActivity extends Activity {
         if(numRight>0)
         numRight--;
         setItemRight(arrayItem[numRight]);
-        Log.i("info4", "dec Right " + numRight);
     }
 
     // END OF INCREASING AND DECREASING NUM RIGHT AND LEFT METHODS
 
+    /**
+     * sets the details: name, picture, price and description for item in the left layout
+     * @param i = Item Class
+     */
     public void setItemLeft(Item i) {
         TextView name = findViewById(R.id.item_name_left);
         name.setText(getResources().getString(i.itemName));
@@ -118,6 +115,10 @@ public class MainActivity extends Activity {
         des.setText(description);
     }
 
+    /**
+     * sets the details: name, picture, price and description for item in the right layout
+     * @param i = Item Class
+     */
     public void setItemRight(Item i) {
         TextView name = findViewById(R.id.item_name_right);
         name.setText(getResources().getString(i.itemName));
@@ -134,59 +135,64 @@ public class MainActivity extends Activity {
         des.setText(description);
     }
 
+    /**
+     * resets all function to the starting point
+     * @param v
+     */
     public void reset(View v){
         numLeft=0;
         setItemLeft(arrayItem[numLeft]);
         numRight=0;
         setItemRight(arrayItem[numRight]);
+        leftBox.setChecked(false);
+        rightBox.setChecked(false);
+
+
     }
 
+    /**
+     * reacts on the CheckBoxes and sends the info to the e-mail intent
+     * @param v
+     */
     public void submit(View v){
-        CheckBox leftBox = findViewById(R.id.checkbox_left);
-        CheckBox rightBox = findViewById(R.id.checkbox_right);
+
 
         int x = 0;
 
-        Item i = arrayItem[x];
+        if(leftBox.isChecked()){
+            x = numLeft;
+        }
+        else if(rightBox.isChecked()){
+            x = numRight;
+        }
+
+        if(leftBox.isChecked() && rightBox.isChecked()){
+            Toast.makeText(this , "Please choose only one item", Toast.LENGTH_SHORT).show();
+        }
+        else if(!leftBox.isChecked() && !rightBox.isChecked()){
+            Toast.makeText(this , "Please choose at least one item", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Item i = arrayItem[x];
+            sendEmail(i);
+        }
+    }
+
+    /**
+     * Sends the e-mail with the items details
+     * @param i = Item class
+     */
+    public void sendEmail(Item i){
         String orderInfo = String.format(Locale.GERMANY,"Price:%d \n %s", i.itemPrice, getResources().getString(i.itemDesImportant));
 
         Intent intent = new Intent(Intent.ACTION_SENDTO);
         intent.setData(Uri.parse("mailto:info@urbanform.eu"));
-        intent.putExtra(Intent.EXTRA_SUBJECT, "Order of " + getResources().getString(i.itemName));
+        intent.putExtra(Intent.EXTRA_SUBJECT, "Order for " + getResources().getString(i.itemName));
         intent.putExtra(Intent.EXTRA_TEXT, orderInfo);
 
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);
         }
-
-
-
-
-
-        /*
-        *//*if(leftBox.isChecked()){
-            x = numLeft;
-        }
-        else if(rightBox.isChecked()){
-            x = numRight;
-        }*//*
-
-
-        //if(leftBox.isChecked() || rightBox.isChecked()) {
-
-
-            Intent intent = new Intent(Intent.ACTION_SEND);
-            intent.setData(Uri.parse("mailto:info@urbanform.eu"));
-            intent.putExtra(Intent.EXTRA_SUBJECT, getResources().getString(R.string.subject));
-            intent.putExtra(Intent.EXTRA_TEXT, orderInfo);
-
-            if (intent.resolveActivity(getPackageManager()) != null) {
-                startActivity(intent);
-            }
-        //}else{
-            //Toast.makeText(this , "Please choose the item", Toast.LENGTH_SHORT).show();
-        //}*/
     }
-
 
 }

@@ -1,11 +1,13 @@
 <resources>
-    <string name="app_name">Compare Items</string>
 
-    <string name="compare">compare</string>
+    <!--MAIN STRINGS -->
+    <string name="app_name">Compare Items</string>
+    <string name="compare">compare items</string>
     <string name="item_one">Item one</string>
     <string name="item_two">Item two</string>
     <string name="des">Description</string>
     <string name="price">0,00</string>
+    <!--END OF MAIN STRINGS -->
 
     <!-- BUTTONS & BOXES -->
     <string name="button_decrease">smaller</string>
@@ -19,43 +21,39 @@
     <string name="item1_name">Small Flower Pot</string>
     <string name="item1_price">15</string>
     <string name="item1_des_important">
-        diameter 9 cm,\n
-        height 15 cm,\n
+        diameter 9 cm\n
+        height 15 cm\n
         width 10 cm\n
 
     </string>
-
     <!-- END OF ITEM SMALL POD -->
 
     <!-- ITEM MEDIUM POD -->
     <string name="item2_name">Medium Flower Pot</string>
     <string name="item2_price">25</string>
     <string name="item2_des_important">
-        diameter 14 cm,\n
-        height 20 cm,\n
+        diameter 14 cm\n
+        height 20 cm\n
         width 15 cm\n
     </string>
-
     <!-- END OF ITEM MEDIUM POD -->
 
     <!-- ITEM MEDIUM POD -->
     <string name="item3_name">Big Flower Pot</string>
     <string name="item3_price">35</string>
     <string name="item3_des_important">
-        diameter 19 cm,\n
-        height 25 cm,\n
+        diameter 19 cm\n
+        height 25 cm\n
         width 20 cm\n
     </string>
     <!-- END OF ITEM MEDIUM POD -->
 
+    <!-- COMMON ITEM INFO-->
     <string name="item_des_other">
         material: Concrete\n
         color: Concrete Grey\n
         notes: Suitable for outdoor use
-
     </string>
-
-
-    <string name="subject">New order</string>
+    <!-- END OF COMMON ITEM INFO-->
 
 </resources>

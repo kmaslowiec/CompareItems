@@ -1,15 +1,19 @@
 package com.example.android.compareitems;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.media.Image;
+import android.net.Uri;
 import android.nfc.Tag;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.Format;
 import java.text.NumberFormat;
@@ -136,4 +140,53 @@ public class MainActivity extends Activity {
         numRight=0;
         setItemRight(arrayItem[numRight]);
     }
+
+    public void submit(View v){
+        CheckBox leftBox = findViewById(R.id.checkbox_left);
+        CheckBox rightBox = findViewById(R.id.checkbox_right);
+
+        int x = 0;
+
+        Item i = arrayItem[x];
+        String orderInfo = String.format(Locale.GERMANY,"Price:%d \n %s", i.itemPrice, getResources().getString(i.itemDesImportant));
+
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("mailto:info@urbanform.eu"));
+        intent.putExtra(Intent.EXTRA_SUBJECT, "Order of " + getResources().getString(i.itemName));
+        intent.putExtra(Intent.EXTRA_TEXT, orderInfo);
+
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
+
+
+
+
+
+        /*
+        *//*if(leftBox.isChecked()){
+            x = numLeft;
+        }
+        else if(rightBox.isChecked()){
+            x = numRight;
+        }*//*
+
+
+        //if(leftBox.isChecked() || rightBox.isChecked()) {
+
+
+            Intent intent = new Intent(Intent.ACTION_SEND);
+            intent.setData(Uri.parse("mailto:info@urbanform.eu"));
+            intent.putExtra(Intent.EXTRA_SUBJECT, getResources().getString(R.string.subject));
+            intent.putExtra(Intent.EXTRA_TEXT, orderInfo);
+
+            if (intent.resolveActivity(getPackageManager()) != null) {
+                startActivity(intent);
+            }
+        //}else{
+            //Toast.makeText(this , "Please choose the item", Toast.LENGTH_SHORT).show();
+        //}*/
+    }
+
+
 }

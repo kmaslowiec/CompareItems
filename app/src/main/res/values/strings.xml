@@ -18,38 +18,41 @@
     <!-- ITEM SMALL POD -->
     <string name="item1_name">Small Flower Pot</string>
     <string name="item1_price">15</string>
-    <string name="item1_des">
-        Size: Diameter 9 cm, height 15 cm, width 10 cm\n
-        Material: Concrete\n
-        Color: Concrete Grey\n
-        Notes: Suitable for outdoor use
+    <string name="item1_des_important">
+        diameter 9 cm,\n
+        height 15 cm,\n
+        width 10 cm\n
 
     </string>
+
     <!-- END OF ITEM SMALL POD -->
 
     <!-- ITEM MEDIUM POD -->
     <string name="item2_name">Medium Flower Pot</string>
     <string name="item2_price">25</string>
-    <string name="item2_des">
-        Size: Diameter 14 cm, height 20 cm, width 15 cm\n
-        Material: Concrete\n
-        Color: Concrete Grey\n
-        Notes: Suitable for outdoor use
-
+    <string name="item2_des_important">
+        diameter 14 cm,\n
+        height 20 cm,\n
+        width 15 cm\n
     </string>
+
     <!-- END OF ITEM MEDIUM POD -->
 
     <!-- ITEM MEDIUM POD -->
     <string name="item3_name">Big Flower Pot</string>
     <string name="item3_price">35</string>
-    <string name="item3_des">
-        Size: Diameter 19 cm, height 25 cm, width 20 cm\n
-        Material: Concrete\n
-        Color: Concrete Grey\n
-        Notes: Suitable for outdoor use
-
+    <string name="item3_des_important">
+        diameter 19 cm,\n
+        height 25 cm,\n
+        width 20 cm\n
     </string>
     <!-- END OF ITEM MEDIUM POD -->
 
+    <string name="item_des_other">
+        material: Concrete\n
+        color: Concrete Grey\n
+        notes: Suitable for outdoor use
+
+    </string>
 
 </resources>

@@ -14,13 +14,14 @@ import android.widget.TextView;
 import java.text.Format;
 import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class MainActivity extends Activity {
 
     private int numLeft = 0;
     private int numRight = 0;
     private Item[] arrayItem = new Item[3];
-   //Item[] arrayItem = {new Item(getResources().getString(R.string.item1_name), 15, getResources().getString(R.string.item1_des))};
+
 
 
 
@@ -30,9 +31,12 @@ public class MainActivity extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
 
         setContentView(R.layout.activity_main);
-        arrayItem[0] = new Item(getResources().getString(R.string.item1_name), R.drawable.flower_pot_small , 15, getResources().getString(R.string.item1_des));
-        arrayItem[1] = new Item(getResources().getString(R.string.item2_name), R.drawable.flower_pot_medium, 25, getResources().getString(R.string.item2_des));
-        arrayItem[2] = new Item(getResources().getString(R.string.item3_name), R.drawable.flower_pot_big, 35, getResources().getString(R.string.item3_des));
+        arrayItem[0] = new Item(R.string.item1_name, R.drawable.flower_pot_small , 15, R.string.item1_des_important, R.string.item_des_other);
+        arrayItem[1] = new Item(R.string.item2_name, R.drawable.flower_pot_medium, 25, R.string.item2_des_important, R.string.item_des_other);
+        arrayItem[2] = new Item(R.string.item3_name, R.drawable.flower_pot_big, 35, R.string.item3_des_important, R.string.item_des_other);
+        setItemLeft(arrayItem[0]);
+        setItemRight(arrayItem[0]);
+
     }
 
 
@@ -48,6 +52,8 @@ public class MainActivity extends Activity {
 
         if(numLeft<2)
         numLeft++;
+
+        setItemLeft(arrayItem[numLeft]);
         Log.i("info1", "inc left " + numLeft);
 
     }
@@ -60,6 +66,8 @@ public class MainActivity extends Activity {
     public void incRight(View v){
         if(numRight<2)
         numRight++;
+
+        setItemRight(arrayItem[numRight]);
         Log.i("info2", "inc Right " + numRight);
     }
 
@@ -71,6 +79,8 @@ public class MainActivity extends Activity {
     public void decLeft(View v){
         if(numLeft>0)
         numLeft--;
+
+        setItemLeft(arrayItem[numLeft]);
         Log.i("info3", "dec Left " + numLeft);
     }
 
@@ -82,21 +92,15 @@ public class MainActivity extends Activity {
     public void decRight(View v){
         if(numRight>0)
         numRight--;
+        setItemRight(arrayItem[numRight]);
         Log.i("info4", "dec Right " + numRight);
     }
 
     // END OF INCREASING AND DECREASING NUM RIGHT AND LEFT METHODS
 
-    public void clicktest(View v){
-
-        setItemLeft(arrayItem[numLeft]);
-
-
-    }
-
     public void setItemLeft(Item i) {
         TextView name = findViewById(R.id.item_name_left);
-        name.setText(i.itemName);
+        name.setText(getResources().getString(i.itemName));
 
         ImageView pic = findViewById(R.id.image_left);
         pic.setImageResource(i.picId);
@@ -105,12 +109,31 @@ public class MainActivity extends Activity {
         price.setText(NumberFormat.getCurrencyInstance().format(i.itemPrice));
 
         TextView des = findViewById(R.id.description_left);
-        des.setText(i.itemDes);
 
-
+        String description = String.format(Locale.CANADA, "%s \n %s",getResources().getString(i.itemDesImportant), getResources().getString(i.itemDesOther));
+        des.setText(description);
     }
 
-    /*public void printItem(View v){
-        Log.i("Item", item.hello);
-    }*/
+    public void setItemRight(Item i) {
+        TextView name = findViewById(R.id.item_name_right);
+        name.setText(getResources().getString(i.itemName));
+
+        ImageView pic = findViewById(R.id.image_right);
+        pic.setImageResource(i.picId);
+
+        TextView price = findViewById(R.id.price_right);
+        price.setText(NumberFormat.getCurrencyInstance().format(i.itemPrice));
+
+        TextView des = findViewById(R.id.description_right);
+
+        String description = String.format(Locale.CANADA, "%s \n %s",getResources().getString(i.itemDesImportant), getResources().getString(i.itemDesOther));
+        des.setText(description);
+    }
+
+    public void reset(View v){
+        numLeft=0;
+        setItemLeft(arrayItem[numLeft]);
+        numRight=0;
+        setItemRight(arrayItem[numRight]);
+    }
 }

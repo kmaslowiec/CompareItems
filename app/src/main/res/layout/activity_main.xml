@@ -253,6 +253,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:text="@string/reset"
+                android:onClick="reset"
 
                 />
 
@@ -262,7 +263,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:text="@string/submit"
-                android:onClick="clicktest"
+
 
 
                 />
